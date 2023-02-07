@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>1.0.0.0</version>
+    <title>Rabbb.MyersDiffer</title>
+    <authors>Rabbb</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MPL-2.0</license>
+    <!-- <icon>icon.png</icon> -->
+    <projectUrl>https://github.com/Rabbb/Rabbb.MyersDiffer/</projectUrl>
+    <description>Myers differ algorithm basic version.</description>
+    <releaseNotes>First upload.</releaseNotes>
+    <copyright>Rabbb</copyright>
+    <tags>Rabbb MyersDiffer</tags>
+  </metadata>
+</package>
