@@ -57,7 +57,7 @@ namespace Rabbb.MyersDiffer
 
         public static SnakeNode<T> MoveSlant(SnakeNode<T> node, T value)
         {
-            return new SnakeNode<T>(node.Land, node.ToRight)
+            return new SnakeNode<T>(node.Land, true)
             {
                 Right = node.Right + 1,
                 Down = node.Down + 1,

@@ -181,5 +181,78 @@ namespace Rabbb.MyersDiffer
 
             Console.BackgroundColor = backColor;
         }
+        
+        
+        public static void PrintSnake2<T>(List<SnakeNode<T>> snake)
+        {
+            var backColor = Console.ForegroundColor;
+            foreach (var node in snake)
+            {
+                if (node.Type == ADD) continue;
+                switch (node.Type)
+                {
+                    // 2023-2-8 Ciaran right
+                    case REMOVE:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write(node.Node);
+                        break;
+                    // 2023-2-8 Ciaran down
+                    case ADD:
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write(node.Node);
+                        break;
+                    // 2023-2-8 Ciaran slant
+                    case MERGE:
+                        Console.ForegroundColor = backColor;
+                        Console.Write(node.Node);
+                        foreach (var node1 in node.Body)
+                        {
+                            Console.Write(node1);
+                        }
+
+                        break;
+                    default:
+                        throw new ArgumentException("Snake has invalid type node.");
+                }
+            }
+            
+            Console.ForegroundColor = backColor;
+            Console.WriteLine();
+            Console.WriteLine("-----------------------------------------------");
+            Console.WriteLine();
+
+            
+            foreach (var node in snake)
+            {
+                if (node.Type == REMOVE) continue;
+                switch (node.Type)
+                {
+                    // 2023-2-8 Ciaran right
+                    case REMOVE:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write(node.Node);
+                        break;
+                    // 2023-2-8 Ciaran down
+                    case ADD:
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write(node.Node);
+                        break;
+                    // 2023-2-8 Ciaran slant
+                    case MERGE:
+                        Console.ForegroundColor = backColor;
+                        Console.Write(node.Node);
+                        foreach (var node1 in node.Body)
+                        {
+                            Console.Write(node1);
+                        }
+
+                        break;
+                    default:
+                        throw new ArgumentException("Snake has invalid type node.");
+                }
+            }
+
+            Console.ForegroundColor = backColor;
+        }
     }
 }

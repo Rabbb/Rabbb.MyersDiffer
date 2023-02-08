@@ -1,5 +1,6 @@
 ﻿using System;
 using Rabbb.MyersDiffer;
+using Rabbb.MyersDiffer.Extension;
 using static Rabbb.MyersDiffer.MyersSnake;
 
 
@@ -20,6 +21,7 @@ namespace MyersCmd
             Console.WriteLine();
             Test3();
             Console.WriteLine();
+
         }
 
 
@@ -83,5 +85,6 @@ end
 
             PrintSnake(snake, "\r\n");
         }
+        
     }
 }
