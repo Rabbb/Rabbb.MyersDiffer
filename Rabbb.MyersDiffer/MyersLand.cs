@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using static Rabbb.MyersDiffer.MyersNodeType;
 
 namespace Rabbb.MyersDiffer
 {
@@ -20,7 +21,7 @@ namespace Rabbb.MyersDiffer
             int max_y = target.Length + 1;
             this.Source = source;
             this.Target = target;
-            nodes = new Task<List<SnakeNode<T>>>[max_x, max_y, 6];
+            nodes = new Task<List<SnakeNode<T>>>[max_x, max_y, (int)MERGE * 2];
         }
 
         public T[] Source { get; }
@@ -34,13 +35,13 @@ namespace Rabbb.MyersDiffer
             try
             {
                 await slim.WaitAsync();
-                if (nodes[node.Right, node.Down, node.ToRight.GetHashCode()] != null)
-                {
-                    task = nodes[node.Right, node.Down, node.ToRight.GetHashCode() * 3 + node.Type - 1];
-                }
 
-                task = promise();
-                nodes[node.Right, node.Down, node.ToRight.GetHashCode() * 3 + node.Type - 1] = task;
+                int right = node.Right;
+                int down = node.Down;
+                int toRightType = node.ToRight.GetHashCode() * 3 + (int)node.Type - 1;
+
+                task = nodes[right, down, toRightType] ?? promise();
+                nodes[right, down, toRightType] = task;
             }
             finally
             {

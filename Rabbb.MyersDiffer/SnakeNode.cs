@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using static Rabbb.MyersDiffer.MyersNodeType;
 
 namespace Rabbb.MyersDiffer
 {
@@ -15,7 +16,7 @@ namespace Rabbb.MyersDiffer
         private List<T> _body;
         public T Node { get; set; }
 
-        public int Type { get; set; } = 1;
+        public MyersNodeType Type { get; set; } = REMOVE;
 
         public int Down { get; set; }
         public int Right { get; set; }
@@ -37,7 +38,7 @@ namespace Rabbb.MyersDiffer
                 Right = node.Right + 1,
                 Down = node.Down,
                 IsValid = arr.Length > 0,
-                Type = 1,
+                Type = REMOVE,
                 Node = arr.Length > 0 ? arr[0] : default,
             };
         }
@@ -49,7 +50,7 @@ namespace Rabbb.MyersDiffer
                 Right = node.Right,
                 Down = node.Down + 1,
                 IsValid = arr.Length > 0,
-                Type = 2,
+                Type = ADD,
                 Node = arr.Length > 0 ? arr[0] : default,
             };
         }
@@ -61,7 +62,7 @@ namespace Rabbb.MyersDiffer
                 Right = node.Right + 1,
                 Down = node.Down + 1,
                 IsValid = true,
-                Type = 3,
+                Type = MERGE,
                 Node = value,
             };
         }

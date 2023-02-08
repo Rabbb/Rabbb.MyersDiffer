@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>1.0.0.0</version>
+    <version>1.0.1.0</version>
     <title>Rabbb.MyersDiffer</title>
     <authors>Rabbb</authors>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -10,7 +10,7 @@
     <!-- <icon>icon.png</icon> -->
     <projectUrl>https://github.com/Rabbb/Rabbb.MyersDiffer/</projectUrl>
     <description>Myers differ algorithm basic version.</description>
-    <releaseNotes>First upload.</releaseNotes>
+    <releaseNotes>fixed bugs.</releaseNotes>
     <copyright>Rabbb</copyright>
     <tags>Rabbb MyersDiffer</tags>
   </metadata>

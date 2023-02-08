@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MyersLand.cs" />
+    <Compile Include="MyersNodeType.cs" />
     <Compile Include="MyersSnake.cs" />
     <Compile Include="SnakeNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

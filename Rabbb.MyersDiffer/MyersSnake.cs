@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using static Rabbb.MyersDiffer.MyersNodeType;
+
 namespace Rabbb.MyersDiffer
 {
     public static class MyersSnake
@@ -41,7 +43,7 @@ namespace Rabbb.MyersDiffer
                 Node = c,
                 Right = head.Right,
                 Down = head.Down + i + 1,
-                Type = 2,
+                Type = ADD,
             }).ToList();
         }
 
@@ -52,7 +54,7 @@ namespace Rabbb.MyersDiffer
                 Node = c,
                 Right = head.Right + i + 1,
                 Down = head.Down,
-                Type = 1,
+                Type = REMOVE,
             }).ToList();
         }
 
@@ -76,7 +78,7 @@ namespace Rabbb.MyersDiffer
                 {
                     Right = head.Right,
                     Down = head.Down,
-                    Type = 3,
+                    Type = MERGE,
                     Node = head.Body[head.Body.Count - 1],
                 };
                 s1 = s1.Skip(i).ToArray();
@@ -126,8 +128,8 @@ namespace Rabbb.MyersDiffer
             if (body1.Count == body2.Count)
             {
                 // 2023-2-8 Ciaran remove , add , slant style
-                bool b_left = head.ToRight && body1.FirstOrDefault()?.Type == 2 && body1.SkipWhile(p=> p.Type == 2).FirstOrDefault()?.Type == 3;
-                bool b_right = head.ToRight && body2.FirstOrDefault()?.Type == 2 && body2.SkipWhile(p=> p.Type == 2).FirstOrDefault()?.Type == 3;
+                bool b_left = head.ToRight && body1.FirstOrDefault()?.Type == ADD && body1.SkipWhile(p=> p.Type == ADD).FirstOrDefault()?.Type == MERGE;
+                bool b_right = head.ToRight && body2.FirstOrDefault()?.Type == ADD && body2.SkipWhile(p=> p.Type == ADD).FirstOrDefault()?.Type == MERGE;
 
                 if (b_left) return body1;
                 if (b_right) return body2;
@@ -148,21 +150,21 @@ namespace Rabbb.MyersDiffer
                 switch (node.Type)
                 {
                     // 2023-2-8 Ciaran right
-                    case 1:
+                    case REMOVE:
                         Console.BackgroundColor = ConsoleColor.Red;
                         Console.Write(node.Node);
                         Console.BackgroundColor = backColor;
                         Console.Write(split);
                         break;
                     // 2023-2-8 Ciaran down
-                    case 2:
+                    case ADD:
                         Console.BackgroundColor = ConsoleColor.Green;
                         Console.Write(node.Node);
                         Console.BackgroundColor = backColor;
                         Console.Write(split);
                         break;
                     // 2023-2-8 Ciaran slant
-                    case 3:
+                    case MERGE:
                         Console.BackgroundColor = backColor;
                         Console.Write(node.Node);
                         Console.Write(split);
