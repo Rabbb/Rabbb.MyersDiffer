@@ -11,17 +11,9 @@ namespace MyersCmd
         static void Main(string[] args)
         {
             Test1();
-            Console.WriteLine();
-            Console.WriteLine();
             Test11();
-            Console.WriteLine();
-            Console.WriteLine();
             Test2();
-            Console.WriteLine();
-            Console.WriteLine();
             Test3();
-            Console.WriteLine();
-
         }
 
 
@@ -34,6 +26,7 @@ namespace MyersCmd
             var snake = land.GetSnake().Result;
 
             PrintSnake(snake);
+            PrintSnake2(snake);
         }
 
         private static void Test11()
@@ -52,11 +45,8 @@ namespace MyersCmd
         {
             var s1 = new string[] { "one", "two", "three", };
             var s2 = new string[] { "four", "five", "six", "seven", };
-            var land = new MyersLand<string>(s1, s2);
-
-            var snake = land.GetSnake().Result;
-
-            PrintSnake(snake, ", ");
+           
+            PrintSnake(s1.MyersDiff(s2), " ");
         }
 
         private static void Test3()

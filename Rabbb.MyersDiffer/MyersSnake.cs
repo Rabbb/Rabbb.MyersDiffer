@@ -143,6 +143,7 @@ namespace Rabbb.MyersDiffer
 
         public static void PrintSnake<T>(List<SnakeNode<T>> snake, string split = null)
         {
+            Console.WriteLine();
             var backColor = Console.BackgroundColor;
             foreach (var node in snake)
             {
@@ -180,11 +181,13 @@ namespace Rabbb.MyersDiffer
             }
 
             Console.BackgroundColor = backColor;
+            Console.WriteLine();
         }
         
         
         public static void PrintSnake2<T>(List<SnakeNode<T>> snake)
         {
+            Console.WriteLine();
             var backColor = Console.ForegroundColor;
             foreach (var node in snake)
             {
@@ -217,6 +220,7 @@ namespace Rabbb.MyersDiffer
             }
             
             Console.ForegroundColor = backColor;
+            Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("-----------------------------------------------");
             Console.WriteLine();
@@ -253,6 +257,7 @@ namespace Rabbb.MyersDiffer
             }
 
             Console.ForegroundColor = backColor;
+            Console.WriteLine();
         }
     }
 }
