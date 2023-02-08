@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
 using static Rabbb.MyersDiffer.MyersNodeType;
 
 namespace Rabbb.MyersDiffer
@@ -128,12 +127,12 @@ namespace Rabbb.MyersDiffer
             if (body1.Count == body2.Count)
             {
                 // 2023-2-8 Ciaran remove , add , slant style
-                bool b_left = head.ToRight && body1.FirstOrDefault()?.Type == ADD && body1.SkipWhile(p=> p.Type == ADD).FirstOrDefault()?.Type == MERGE;
-                bool b_right = head.ToRight && body2.FirstOrDefault()?.Type == ADD && body2.SkipWhile(p=> p.Type == ADD).FirstOrDefault()?.Type == MERGE;
+                bool b_left = head.ToRight && body1.FirstOrDefault()?.Type == ADD && body1.SkipWhile(p => p.Type == ADD).FirstOrDefault()?.Type == MERGE;
+                bool b_right = head.ToRight && body2.FirstOrDefault()?.Type == ADD && body2.SkipWhile(p => p.Type == ADD).FirstOrDefault()?.Type == MERGE;
 
                 if (b_left) return body1;
                 if (b_right) return body2;
-                
+
                 // 2023-2-8 Ciaran continue style
                 return head.ToRight ? body1 : body2;
             }
@@ -168,13 +167,10 @@ namespace Rabbb.MyersDiffer
                         Console.BackgroundColor = backColor;
                         Console.Write(node.Node);
                         Console.Write(split);
-                        if (node.Right > 1)
+                        foreach (var node1 in node.Body)
                         {
-                            foreach (var node1 in node.Body)
-                            {
-                                Console.Write(node1);
-                                Console.Write(split);
-                            }
+                            Console.Write(node1);
+                            Console.Write(split);
                         }
 
                         break;
