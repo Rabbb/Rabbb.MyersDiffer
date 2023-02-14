@@ -14,6 +14,7 @@ namespace Rabbb.MyersDiffer
         private readonly SemaphoreSlim slim = new SemaphoreSlim(1, 1);
 
         private readonly Task<List<SnakeNode<T>>>[,,] nodes;
+        private Func<T, T, bool> _nodeEquals = (a, b) => Equals(a, b);
 
         public MyersLand(T[] source, T[] target)
         {
@@ -27,6 +28,13 @@ namespace Rabbb.MyersDiffer
         public T[] Source { get; }
 
         public T[] Target { get; }
+
+
+        public Func<T, T, bool> NodeEquals
+        {
+            get => _nodeEquals;
+            set => _nodeEquals = value ?? ((a, b) => Equals(a, b));
+        }
 
 
         public async Task<List<SnakeNode<T>>> GetSnakeBody(SnakeNode<T> node, Func<Task<List<SnakeNode<T>>>> promise)

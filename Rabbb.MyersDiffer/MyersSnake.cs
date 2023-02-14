@@ -64,7 +64,7 @@ namespace Rabbb.MyersDiffer
             body1.Add(head);
 
             int i = 0;
-            for (; i < s1.Length && i < s2.Length && Equals(s1[i], s2[i]); i++)
+            for (; i < s1.Length && i < s2.Length && head.Land.NodeEquals(s1[i], s2[i]); i++)
             {
                 head.Right++;
                 head.Down++;
@@ -113,7 +113,7 @@ namespace Rabbb.MyersDiffer
                 return GetStraightRightBody(head, s1);
 
             // 2023-2-8 Ciaran move slant 
-            if (Equals(node2.Node, node1.Node))
+            if (head.Land.NodeEquals(node2.Node, node1.Node))
             {
                 var node3 = SnakeNode<T>.MoveSlant(head, node2.Node);
 
