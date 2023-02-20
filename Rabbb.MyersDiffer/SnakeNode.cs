@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using static Rabbb.MyersDiffer.MyersNodeType;
 
 namespace Rabbb.MyersDiffer
@@ -69,6 +70,29 @@ namespace Rabbb.MyersDiffer
 
         public override string ToString()
         {
+            if (_body == null || _body.Count <= 0) return Node is null ? "" : Node.ToString();
+            
+            StringBuilder s = new StringBuilder();
+            s.Append(Node is null ? "" : Node.ToString());
+            foreach (var node1 in _body)
+            {
+                s.Append(node1 is null ? "" : node1.ToString());
+            }
+            return Node is null ? "" : Node.ToString();
+        }
+        
+        
+        public string ToString(string separator)
+        {
+            if (_body == null || _body.Count <= 0) return Node is null ? "" : Node.ToString();
+            
+            StringBuilder s = new StringBuilder();
+            s.Append(Node is null ? "" : Node.ToString());
+            foreach (var node1 in _body)
+            {
+                s.Append(separator);
+                s.Append(node1 is null ? "" : node1.ToString());
+            }
             return Node is null ? "" : Node.ToString();
         }
     }
