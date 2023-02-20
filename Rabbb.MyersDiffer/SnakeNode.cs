@@ -66,5 +66,10 @@ namespace Rabbb.MyersDiffer
                 Node = value,
             };
         }
+
+        public override string ToString()
+        {
+            return Node is null ? "" : Node.ToString();
+        }
     }
 }
